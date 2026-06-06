@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LMSt | Sistem Pelaporan OJK</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Three.js CDN Integration for immersive 3D Scene -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- html2pdf.js CDN for landscape PDF export generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #0c0a0a; overflow-x: hidden; }
@@ -35,10 +33,8 @@
 </head>
 <body class="text-slate-900 min-h-screen relative selection:bg-maroon selection:text-white">
 
-    <!-- Interactive 3D WebGL Canvas Background -->
     <canvas id="threeCanvas" class="fixed inset-0 w-full h-full -z-10 pointer-events-none"></canvas>
 
-    <!-- Navigasi -->
     <nav class="bg-maroon/90 backdrop-blur-md text-white sticky top-0 z-50 shadow-xl border-b-2 border-yellow-600/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between py-3 items-center">
@@ -70,7 +66,6 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-10">
         
-        <!-- VIEW PELAPOR -->
         <div id="pelaporView" class="animate-fade-in space-y-10">
             <div class="max-w-3xl mx-auto">
                 <div class="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden border-t-[6px] border-maroon">
@@ -195,7 +190,6 @@
             </div>
         </div>
 
-        <!-- VIEW ADMIN -->
         <div id="adminView" class="hidden space-y-8 animate-fade-in">
             <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 bg-white/95 backdrop-blur-xl p-6 rounded-3xl border-l-[10px] border-maroon shadow-2xl">
                 <div class="flex items-center gap-4">
@@ -228,7 +222,6 @@
                 </div>
             </div>
 
-            <!-- PUSAT KENDALI & LAPORAN STATISTIK ADMIN -->
             <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-100 space-y-6">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
                     <div>
@@ -260,10 +253,10 @@
                             <option value="LMSt 2">LMSt 2</option>
                             <option value="LMSt 3">LMSt 3</option>
                         </select>
-                        <button onclick="exportStatSummaryReport()" class="bg-slate-900 text-white hover:bg-slate-800 text-[9px] font-black uppercase px-3 py-2 rounded-lg transition-all shadow">
+                        <button onclick="exportStatSummaryReport()" class="bg-slate-900 text-white hover:bg-slate-800 text-[9px] font-black uppercase px-3 py-2 rounded-lg transition-all shadow-sm cursor-pointer">
                             Cetak Statistik
                         </button>
-                        <button onclick="triggerReset()" class="bg-red-600 text-white hover:bg-red-700 text-[9px] font-black uppercase px-3 py-2 rounded-lg transition-all shadow">
+                        <button onclick="triggerReset()" class="bg-red-600 text-white hover:bg-red-700 text-[9px] font-black uppercase px-3 py-2 rounded-lg transition-all shadow-sm cursor-pointer">
                             Atur Ulang Data
                         </button>
                     </div>
@@ -383,7 +376,7 @@
                 <div class="bg-slate-50/90 px-6 py-4 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-3">
                     <div class="flex items-center gap-2">
                         <h3 class="text-xs font-black text-slate-800 uppercase tracking-widest">Daftar Laporan Masuk</h3>
-                        <button onclick="openIdSettingsModal()" class="w-7 h-7 flex items-center justify-center bg-slate-200/60 hover:bg-maroon hover:text-white text-slate-700 rounded-full transition-all shadow-sm shrink-0" title="Atur Nomor Awal Penomoran ID">
+                        <button onclick="openIdSettingsModal()" class="w-7 h-7 flex items-center justify-center bg-slate-200/60 hover:bg-maroon hover:text-white text-slate-700 rounded-full transition-all shadow-sm shrink-0 cursor-pointer" title="Atur Nomor Awal Penomoran ID">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
                             </svg>
@@ -438,9 +431,8 @@
                 </div>
             </div>
         </div>
-    </main>
+ main>
 
-    <!-- Modal Autentikasi Admin -->
     <div id="authModal" class="fixed inset-0 bg-maroon/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-sm rounded-2xl p-8 shadow-2xl animate-fade-in border-t-4 border-maroon">
             <div class="text-center mb-6 flex flex-col items-center">
@@ -456,14 +448,13 @@
             
             <div class="space-y-4">
                 <input type="password" id="adminPassword" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-maroon outline-none font-black tracking-[0.5em] transition-all bg-slate-50 text-center text-lg" placeholder="••••">
-                <button onclick="verifyPassword()" class="w-full px-4 py-3.5 text-xs font-black bg-maroon text-white rounded-xl hover:bg-red-900 shadow-xl shadow-red-200 transition-all uppercase tracking-[0.2em]">Buka Dashboard</button>
-                <button onclick="closeAuthModal()" class="w-full px-4 py-2 text-[10px] font-bold text-slate-400 hover:text-maroon transition-all">Batalkan</button>
+                <button onclick="verifyPassword()" class="w-full px-4 py-3.5 text-xs font-black bg-maroon text-white rounded-xl hover:bg-red-900 shadow-xl shadow-red-200 transition-all uppercase tracking-[0.2em] cursor-pointer">Buka Dashboard</button>
+                <button onclick="closeAuthModal()" class="w-full px-4 py-2 text-[10px] font-bold text-slate-400 hover:text-maroon transition-all cursor-pointer">Batalkan</button>
                 <p id="errorMsg" class="text-[10px] text-red-600 font-black hidden text-center uppercase tracking-tighter">Sandi Salah!</p>
             </div>
         </div>
     </div>
 
-    <!-- Modal Ganti Kata Sandi -->
     <div id="changePasswordModal" class="fixed inset-0 bg-maroon/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-sm rounded-2xl p-8 shadow-2xl animate-fade-in border-t-4 border-maroon">
             <div class="text-center mb-6 flex flex-col items-center">
@@ -491,14 +482,13 @@
                     <input type="password" id="confirmNewPwd" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-maroon outline-none text-xs font-bold tracking-widest transition-all bg-slate-50" placeholder="••••">
                 </div>
                 
-                <button onclick="submitChangePassword()" class="w-full mt-2 px-4 py-3 text-xs font-black bg-maroon text-white rounded-xl hover:bg-red-900 shadow-xl shadow-red-200 transition-all uppercase tracking-[0.2em]">Simpan Sandi Baru</button>
-                <button onclick="closeChangePasswordModal()" class="w-full px-4 py-1.5 text-[10px] font-bold text-slate-400 hover:text-maroon transition-all">Batalkan</button>
+                <button onclick="submitChangePassword()" class="w-full mt-2 px-4 py-3 text-xs font-black bg-maroon text-white rounded-xl hover:bg-red-900 shadow-xl shadow-red-200 transition-all uppercase tracking-[0.2em] cursor-pointer">Simpan Sandi Baru</button>
+                <button onclick="closeChangePasswordModal()" class="w-full px-4 py-1.5 text-[10px] font-bold text-slate-400 hover:text-maroon transition-all cursor-pointer">Batalkan</button>
                 <p id="changePwdErrorMsg" class="text-[10px] text-red-600 font-black hidden text-center uppercase tracking-tighter"></p>
             </div>
         </div>
     </div>
 
-    <!-- Modal Pilihan Ekspor -->
     <div id="exportModal" class="fixed inset-0 bg-maroon/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-lg rounded-2xl p-8 shadow-2xl animate-fade-in border-t-4 border-maroon">
             <div class="text-center mb-5 flex flex-col items-center">
@@ -569,12 +559,11 @@
                     </button>
                 </div>
 
-                <button onclick="closeExportModal()" class="w-full px-4 py-2.5 text-[10px] font-bold text-slate-400 hover:text-maroon transition-all bg-slate-50 rounded-xl border border-slate-100">Batalkan</button>
+                <button onclick="closeExportModal()" class="w-full px-4 py-2.5 text-[10px] font-bold text-slate-400 hover:text-maroon transition-all bg-slate-50 rounded-xl border border-slate-100 cursor-pointer">Batalkan</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal Atur Nomor Mulai ID Laporan -->
     <div id="idSettingsModal" class="fixed inset-0 bg-maroon/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-sm rounded-2xl p-8 shadow-2xl animate-fade-in border-t-4 border-maroon">
             <div class="text-center mb-6 flex flex-col items-center">
@@ -591,13 +580,12 @@
                     <input type="number" id="startingNumberInput" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-maroon outline-none font-bold transition-all bg-slate-50 text-center text-base" placeholder="0">
                 </div>
                 
-                <button onclick="submitStartingNumber()" class="w-full mt-1 px-4 py-3 text-xs font-black bg-maroon text-white rounded-xl hover:bg-red-900 shadow-xl shadow-red-200 transition-all uppercase tracking-[0.2em]">Simpan Nomor Awal</button>
-                <button onclick="closeIdSettingsModal()" class="w-full px-4 py-1.5 text-[10px] font-bold text-slate-400 hover:text-maroon transition-all">Batalkan</button>
+                <button onclick="submitStartingNumber()" class="w-full mt-1 px-4 py-3 text-xs font-black bg-maroon text-white rounded-xl hover:bg-red-900 shadow-xl shadow-red-200 transition-all uppercase tracking-[0.2em] cursor-pointer">Simpan Nomor Awal</button>
+                <button onclick="closeIdSettingsModal()" class="w-full px-4 py-1.5 text-[10px] font-bold text-slate-400 hover:text-maroon transition-all cursor-pointer">Batalkan</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal Konfirmasi Kustom -->
     <div id="confirmModal" class="fixed inset-0 bg-maroon/60 backdrop-blur-sm z-[120] hidden flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-sm rounded-2xl p-8 shadow-2xl animate-fade-in border-t-4 border-yellow-500">
             <div class="text-center mb-5 flex flex-col items-center">
@@ -633,24 +621,22 @@
                 </div>
             </div>
             <div class="space-y-2">
-                <button id="confirmYesBtn" class="w-full px-4 py-3 text-xs font-black bg-red-600 text-white rounded-xl hover:bg-red-700 shadow-xl shadow-red-200 transition-all uppercase tracking-[0.2em]">Ya, Lanjutkan</button>
-                <button onclick="closeConfirmModal()" class="w-full px-4 py-3 text-[10px] font-bold text-slate-400 hover:text-slate-600 transition-all bg-slate-50 rounded-xl border border-slate-100">Batal</button>
+                <button id="confirmYesBtn" class="w-full px-4 py-3 text-xs font-black bg-red-600 text-white rounded-xl hover:bg-red-700 shadow-xl shadow-red-200 transition-all uppercase tracking-[0.2em] cursor-pointer">Ya, Lanjutkan</button>
+                <button onclick="closeConfirmModal()" class="w-full px-4 py-3 text-[10px] font-bold text-slate-400 hover:text-slate-600 transition-all bg-slate-50 rounded-xl border border-slate-100 cursor-pointer">Batal</button>
             </div>
         </div>
     </div>
 
-    <!-- Notifikasi Toast -->
     <div id="toast" class="fixed bottom-6 right-6 bg-maroon text-white px-6 py-4 rounded-xl shadow-2xl transform translate-y-40 opacity-0 transition-all duration-500 z-[100000] flex items-center gap-4 border-l-4 border-yellow-500">
         <span id="toastMessage" class="text-xs font-bold uppercase tracking-wider"></span>
     </div>
 
-    <!-- Firebase SDK Integration and Persistent State logic -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
         import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, updateDoc, deleteDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Global States[cite: 1]
+        // Global States
         let currentRole = 'Pelapor';
         let currentReportType = 'Kendala';
         let adminPassword = 'LMST@2026!Admin';
@@ -659,7 +645,7 @@
         let exportType = 'Kendala'; 
         let reportIdToDelete = null;
 
-        // Firebase Configuration[cite: 1]
+        // Firebase Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDQgE6E93cr3EqcJGLH9ic5n8mGWuwvYYM",
             authDomain: "lmst-pmdk.firebaseapp.com",
@@ -673,7 +659,7 @@
         let db, analytics;
         const categories = ['Keuangan', 'Kelogistikan', 'Sumber Daya Manusia (SDM)', 'Lain-lain'];
 
-        // Helper to compute sequential ID chronologically[cite: 1]
+        // Helper to compute sequential ID chronologically
         const getReportSequentialId = (reportId, type) => {
             const sorted = [...reports]
                 .filter(r => r.type === type)
@@ -693,7 +679,7 @@
             return `${prefix}-${String(seqNum).padStart(3, '0')}`;
         };
 
-        // 3D Scene Global Variables[cite: 1]
+        // 3D Scene Global Variables
         let scene, camera, renderer, buildings = [];
         let particles, centerpiece, centerpieceOrbit;
         let mouseX = 0, mouseY = 0;
@@ -880,7 +866,7 @@
             renderer.render(scene, camera);
         }
 
-        // Init Firebase Connection & Realtime Real-time Engine[cite: 1]
+        // Init Firebase Connection & Realtime Real-time Engine
         const initDatabaseAndAuth = async () => {
             try {
                 const app = initializeApp(firebaseConfig);
@@ -952,13 +938,12 @@
                 const reportDocRef = doc(db, 'reports', newId);
                 await setDoc(reportDocRef, newReport);
                 showToast('Laporan Resmi Berhasil Dikirim ke Cloud Console!');
+                document.getElementById('reportForm').reset();
+                updateCategoryOptions();
             } catch (err) {
                 console.error("Gagal mengirim laporan ke Cloud", err);
                 showToast('Laporan gagal dikirim ke awan cloud server.');
             }
-
-            document.getElementById('reportForm').reset();
-            updateCategoryOptions();
         };
 
         const setReportType = (type) => {
@@ -1301,7 +1286,7 @@
                                 <option value="Diproses" ${r.status === 'Diproses' ? 'selected' : ''}>Diproses</option>
                                 <option value="Selesai">Selesai</option>
                             </select>
-                            <button onclick="triggerDelete('${r.id}')" class="p-1 text-red-600 hover:bg-red-50 rounded-lg transition-all" title="Hapus Laporan">
+                            <button onclick="triggerDelete('${r.id}')" class="p-1 text-red-600 hover:bg-red-50 rounded-lg transition-all cursor-pointer" title="Hapus Laporan">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-11v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                 </svg>
@@ -1414,12 +1399,33 @@
 
             let tableRows = filtered.map((r, index) => `
                 <tr>
-                    <td>${index + 1}</td><td>${formatReportId(r)}</td><td>${r.date}</td><td>${r.lmst}</td>
-                    <td>${r.name}</td><td>${r.satker}</td><td>${r.category}</td><td>${r.description}</td><td>${r.status}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">${index + 1}</td>
+                    <td style="border:1px solid #ccc; padding:6px; font-weight:bold; color:#800000;">${formatReportId(r)}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">${r.date}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">${r.lmst}</td>
+                    <td style="border:1px solid #ccc; padding:6px;"><b>${r.name}</b></td>
+                    <td style="border:1px solid #ccc; padding:6px;">${r.satker} / ${r.unit}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">${r.category}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">${r.description}</td>
+                    <td style="border:1px solid #ccc; padding:6px;">${r.status}</td>
                 </tr>
             `).join('');
 
-            const htmlContent = `<html><body><h2>Laporan Resmi ${type}</h2><table border="1">${tableRows}</table></body></html>`;
+            const htmlContent = `
+            <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+            <head><meta charset='utf-8'><title>Ekspor Dokumen Word OJK</title></head>
+            <body style="font-family:'Arial';">
+                <h2 style="color:#800000; text-align:center;">LAPORAN DATA ${type.toUpperCase()} TERPADU</h2>
+                <hr/>
+                <table style="width:100%; border-collapse:collapse;" border="1">
+                    <tr style="background-color:#800000; color:white;">
+                        <th>No</th><th>ID Laporan</th><th>Waktu</th><th>Node</th><th>Pelapor</th><th>Satker/Unit</th><th>Kategori</th><th>Deskripsi</th><th>Status</th>
+                    </tr>
+                    ${tableRows}
+                </table>
+            </body>
+            </html>`;
+
             const blob = new Blob(['\ufeff' + htmlContent], { type: 'application/msword' });
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
@@ -1436,13 +1442,49 @@
             if(filtered.length === 0) { showToast(`Data Kosong`); return; }
 
             const pdfContainer = document.createElement('div');
-            pdfContainer.innerHTML = `<h2>Laporan PDF ${type}</h2><table border="1" style="width:100%">` + 
-                filtered.map((r, i) => `<tr><td>${i+1}</td><td>${formatReportId(r)}</td><td>${r.name}</td><td>${r.description}</td></tr>`).join('') + 
-                `</table>`;
+            pdfContainer.style.padding = '20px';
+            pdfContainer.style.fontFamily = 'Arial, sans-serif';
+            
+            let rowsHtml = filtered.map((r, i) => `
+                <tr style="font-size: 10px;">
+                    <td style="border:1px solid #333; padding:5px; text-align:center;">${i+1}</td>
+                    <td style="border:1px solid #333; padding:5px; font-weight:bold; color:#800000;">${formatReportId(r)}</td>
+                    <td style="border:1px solid #333; padding:5px; text-align:center;">${r.date}</td>
+                    <td style="border:1px solid #333; padding:5px; text-align:center;">${r.lmst}</td>
+                    <td style="border:1px solid #333; padding:5px;"><b>${r.name}</b></td>
+                    <td style="border:1px solid #333; padding:5px;">${r.satker}</td>
+                    <td style="border:1px solid #333; padding:5px;">${r.category}</td>
+                    <td style="border:1px solid #333; padding:5px; max-width:250px; word-wrap:break-word;">${r.description}</td>
+                    <td style="border:1px solid #333; padding:5px; text-align:center;">${r.status}</td>
+                </tr>
+            `).join('');
+
+            pdfContainer.innerHTML = `
+                <div style="text-align:center; margin-bottom:15px;">
+                    <h2 style="margin:0; color:#800000; font-size:16px;">OTORITAS JASA KEUANGAN (OJK)</h2>
+                    <h3 style="margin:5px 0 0; font-size:12px; color:#444;">REKAPITULASI LAPORAN ${type.toUpperCase()} INTEGRASI</h3>
+                </div>
+                <table style="width:100%; border-collapse:collapse; font-size:10px;" border="1">
+                    <tr style="background-color:#800000; color:white; font-size:10px;">
+                        <th style="padding:6px;">No</th><th style="padding:6px;">ID Laporan</th><th style="padding:6px;">Waktu</th><th style="padding:6px;">Node</th><th style="padding:6px;">Pelapor</th><th style="padding:6px;">Satker</th><th style="padding:6px;">Kategori</th><th style="padding:6px;">Deskripsi</th><th style="padding:6px;">Status</th>
+                    </tr>
+                    ${rowsHtml}
+                </table>
+            `;
 
             document.body.appendChild(pdfContainer);
-            const opt = { margin: 10, filename: `Laporan_${type}.pdf`, jsPDF: { orientation: 'landscape' } };
-            html2pdf().set(opt).from(pdfContainer).save().then(() => pdfContainer.remove());
+            const opt = { 
+                margin: [10, 10, 10, 10], 
+                filename: `Laporan_${type}_LMSt_OJK.pdf`, 
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' } 
+            };
+            
+            html2pdf().set(opt).from(pdfContainer).save().then(() => {
+                pdfContainer.remove();
+                showToast('Berkas PDF berhasil diunduh.');
+            });
         };
 
         const exportStatSummaryReport = () => {
@@ -1455,7 +1497,7 @@
 
             const total = statReports.length;
             const printWindow = window.open('', '_blank');
-            printWindow.document.write(`<html><body><h2>Ringkasan Eksekutif OJK</h2><p>Total Kasus Terdata: ${total}</p></body></html>`);
+            printWindow.document.write(`<html><head><title>Cetak Statistik</title></head><body style="font-family:Arial; padding:30px;"><h2>Ringkasan Eksekutif Analisis Performa</h2><hr/><p>Total Kasus Terdata Pada Sesi Filter: <b>${total} Laporan</b></p></body></html>`);
             printWindow.document.close();
             printWindow.print();
         };
